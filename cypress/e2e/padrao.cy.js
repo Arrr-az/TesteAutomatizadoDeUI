@@ -65,8 +65,52 @@ describe('Teste front e-mail',()=>{
       
         cy.get(`.contact-form >:nth-child(${i})`).should('be.visible').and('not.have.attr','readonly')
         cy.get('[type="submit"]').should('be.disabled')
-      } 
+      }
+  })
+})
 
-    
+describe('Teste perda de conteudo', () => {
+  it('passes', () => {
+
+    // Navega até a página de email
+    cy.get(":nth-child(1) > .col > .card > a.ng-tns-c2007924471-1 > .card-content").click();
+    cy.url().should("be.equals", "https://cartao-de-visitas-1f916.web.app/email");
+
+    const inputNome = 'aaa'
+    const inputEmail = 'bbb@mail.com'
+    const inputMensagem = 'ccc'
+
+    // Insere texto nos campos
+    cy.get(`.contact-form >:nth-child(${1})>:input`).type(inputNome);
+    cy.get(`.contact-form >:nth-child(${2})>:input`).type(inputEmail);
+    cy.get(`.contact-form >:nth-child(${3})>:input`).type(inputMensagem);
+
+    // Volta à home e checa se os valores dos campos estão salvos na rota
+    cy.get('button.black').click();
+    cy.url().should("include", `/home?user_name=${inputNome}&user_email=${inputEmail}&message=${inputMensagem}`);
+
+    // Navega até a página de email novamente
+    cy.get(":nth-child(1) > .col > .card > a.ng-tns-c2007924471-1 > .card-content").click();
+    cy.url().should("be.equals", "https://cartao-de-visitas-1f916.web.app/email");
+
+    //Checa se os campos possuem os mesmos valores da rota
+    cy.get(`.contact-form >:nth-child(${1})>:input`)
+      .invoke('val')
+      .then((conteudoNome) => {
+        expect(conteudoNome).to.equal(inputNome);
+      });
+
+    cy.get(`.contact-form >:nth-child(${2})>:input`)
+      .invoke('val')
+      .then((conteudoEmail) => {
+        expect(conteudoEmail).to.equal(inputEmail);
+      });
+
+    cy.get(`.contact-form >:nth-child(${3})>:input`)
+      .invoke('val')
+      .then((conteudoMensagem) => {
+        expect(conteudoMensagem).to.equal(inputMensagem);
+      });
+
   })
 })
