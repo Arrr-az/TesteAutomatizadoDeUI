@@ -1,4 +1,4 @@
-describe("Teste home", () => {
+describe("Teste 1", () => {
   it("passes", () => {
     cy.visit("https://cartao-de-visitas-1f916.web.app");
     cy.get("h2").should("contain", "Catterina Vittorazzi Salvador");
@@ -16,7 +16,7 @@ beforeEach(() => {
   cy.visit("https://cartao-de-visitas-1f916.web.app");
 });
 
-describe("Teste redirecionar email", () => {
+describe("Teste 2", () => {
   it("passes", () => {
     cy.get(
       ":nth-child(1) > .col > .card > a.ng-tns-c2007924471-1 > .card-content"
@@ -27,7 +27,7 @@ describe("Teste redirecionar email", () => {
     );
   });
 });
-describe("Teste redirecionar surpresa", () => {
+describe("Teste 3", () => {
   it("passes", () => {
     cy.get(
       ":nth-child(6) > .col > .card > a.ng-tns-c2007924471-1 > .card-content"
@@ -38,21 +38,21 @@ describe("Teste redirecionar surpresa", () => {
     );
   });
 });
-describe("Teste redirecionar whatsapp", () => {
+describe("Teste 4", () => {
   it("passes", () => {
     cy.get(":nth-child(2) > .col > .card > a.ng-tns-c2007924471-1")
       .should("have.attr", "href")
       .and("include", "https://wa.me/5528999596505");
   });
 });
-describe("Teste redirecionar instagram", () => {
+describe("Teste 5", () => {
   it("passes", () => {
     cy.get(":nth-child(3) > .col > .card > a.ng-tns-c2007924471-1")
       .should("have.attr", "href")
       .and("include", "https://www.instagram.com/catterinasalvador/");
   });
 });
-describe("Teste redirecionar linkedin", () => {
+describe("Teste 6", () => {
   it("passes", () => {
     cy.get(":nth-child(4) > .col > .card > a.ng-tns-c2007924471-1")
       .should("have.attr", "href")
@@ -62,7 +62,7 @@ describe("Teste redirecionar linkedin", () => {
       );
   });
 });
-describe("Teste redirecionar github", () => {
+describe("Teste 7", () => {
   it("passes", () => {
     cy.get(":nth-child(5) > .col > .card > a.ng-tns-c2007924471-1 ")
       .should("have.attr", "href")
@@ -70,7 +70,7 @@ describe("Teste redirecionar github", () => {
   });
 });
 
-describe("Teste front e-mail", () => {
+describe("Teste 8", () => {
   it("passes", () => {
     cy.get(
       ":nth-child(1) > .col > .card > a.ng-tns-c2007924471-1 > .card-content"
@@ -84,7 +84,7 @@ describe("Teste front e-mail", () => {
   });
 });
 
-describe("Teste perda de conteudo", () => {
+describe("Teste 9", () => {
   it("passes", () => {
     // Navega até a página de email
     cy.get(
@@ -141,7 +141,7 @@ describe("Teste perda de conteudo", () => {
   });
 });
 
-describe("Error messages", () => {
+describe("Teste 10", () => {
   it("passes", () => {
     cy.get(
       ":nth-child(1) > .col > .card > a.ng-tns-c2007924471-1 > .card-content"
@@ -178,8 +178,8 @@ describe("Error messages", () => {
   });
 });
 
-describe("Teste de erro ao definir valor vazio", () => {
-  it("verifica se o erro aparece quando o valor do input e do textarea é definido como vazio", () => {
+describe("Teste 11", () => {
+  it("passes", () => {
     cy.get(
       ":nth-child(1) > .col > .card > a.ng-tns-c2007924471-1 > .card-content"
     ).click();
@@ -216,8 +216,8 @@ describe("Teste de erro ao definir valor vazio", () => {
   });
 });
 
-describe("Testando inputs preenchidos", () => {
-  it("verifica se o erro aparece quando o valor do input e do textarea é definido como vazio e preenche valores corretamente", () => {
+describe("Teste 12", () => {
+  it("passes e preenche valores corretamente", () => {
     cy.get(
       ":nth-child(1) > .col > .card > a.ng-tns-c2007924471-1 > .card-content"
     ).click();
@@ -254,8 +254,8 @@ describe("Testando inputs preenchidos", () => {
   });
 });
 
-describe("Teste aba surprise", () => {
-  it("verifica se o erro aparece quando o valor do input e do textarea é definido como vazio", () => {
+describe("Teste 13", () => {
+  it("passes", () => {
     cy.get(
       ":nth-child(6) > .col > .card > a.ng-tns-c2007924471-1 > .card-content"
     ).click();
